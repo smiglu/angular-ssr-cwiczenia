@@ -1,0 +1,41 @@
+<h1>DummyJson - produkty</h1>
+<section class="card pagination">
+  <div>
+    Ilość produktów do pokazania:
+    <input
+      type="number"
+      #productAmount
+      (input)="onProductAmountChange(productAmount.value)"
+    />
+  </div>
+  <button (click)="changePage(-1)">Poprzednie</button>
+  <button (click)="changePage(1)">Następne</button>
+  <button (click)="loadData()">Resetuj listę</button>
+</section>
+<section class="card">
+  Wyświetlam stronę nr {{ pageNumber }}, ilość produktów na stronę:
+  {{ productsPerPage }}
+</section>
+<section class="card list">
+  <table>
+    <tr>
+      <th>Nazwa</th>
+      <th>Marka</th>
+      <th>Kategoria</th>
+      <th>Cena</th>
+      <th>Ocena</th>
+      <th>Opis</th>
+    </tr>
+
+    @for (product of products$ | async; track $index) {
+    <tr>
+      <td>{{ product.title }}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.rating }}</td>
+      <td>{{ product.description | slice : 20 }}</td>
+    </tr>
+    }
+  </table>
+</section>

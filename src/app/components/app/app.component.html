@@ -1,0 +1,15 @@
+<aside>
+  <header>
+    <img src="/angular-logo.svg" alt="Angular Logo" />
+    <p>Angular SSR <br /><span class="subheader">ćwiczenia</span></p>
+  </header>
+  <nav>
+    <a [routerLink]="['/signals/1']">Signal 1</a>
+    <a [routerLink]="['/signals/2']">Signal 2</a>
+    <a [routerLink]="['/template-flow']">Template Flow</a>
+    <a [routerLink]="['/ng-optimized-image']">NgOptimizedImage</a>
+  </nav>
+</aside>
+<main>
+  <router-outlet></router-outlet>
+</main>

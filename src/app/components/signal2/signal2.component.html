@@ -1,0 +1,33 @@
+<h1>DummyJson - wybierz produkty</h1>
+<section class="card">Wybrane produkty: {{ selectedProducts() }}</section>
+<section class="card">
+  Akcje:
+  <button (click)="loadData()">Resetuj listę</button>
+  <button (click)="resetSelected()">Resetuj wybrane</button>
+</section>
+<section class="card list">
+  <table>
+    <tr>
+      <th></th>
+      <th>Nazwa</th>
+      <th>Kategoria</th>
+      <th>Cena</th>
+    </tr>
+
+    @for (product of products(); track $index) {
+    <tr>
+      <td>
+        <input
+          type="checkbox"
+          [checked]="selectedProducts().includes($index)"
+          [id]="$index"
+          (click)="addProductToSelected($index)"
+        />
+      </td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.price }}</td>
+    </tr>
+    }
+  </table>
+</section>

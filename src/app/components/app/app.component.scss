@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  min-height: 100vh;
+}
+
+header {
+  color: #444;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  .subheader {
+    font-size: 14px;
+  }
+}
+
+aside {
+  width: 250px;
+  background: white;
+}
+
+nav {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main {
+  margin-top: 35px;
+}
