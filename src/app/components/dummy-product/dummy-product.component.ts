@@ -13,8 +13,12 @@ export class DummyProductComponent {
 
   private readonly api = inject(DummyJsonApiService)
 
+  showJsonData = false
   product!: Observable<APIProduct>
   ngOnInit(): void {
     this.product = this.api.getProduct(this.id)
+  }
+  showAll() {
+    this.showJsonData = true
   }
 }

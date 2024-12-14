@@ -1,4 +1,19 @@
 <h2>Dummy product (id: {{ id }})</h2>
-<pre class="card">
-  {{ product | async | json }}
-</pre>
+<div class="card" *ngIf="{ product: product | async } as data">
+  <h2>{{ data.product?.title }}</h2>
+  <img
+    *ngIf="data.product?.thumbnail"
+    [ngSrc]="data.product?.thumbnail!"
+    alt="{{ data.product?.title }}"
+    width="200"
+    height="200"
+    priority
+  />
+  <p>Cena: {{ data.product?.price }}</p>
+  <p>Stolica Maroko: {{ data.product?.discountPercentage }}%</p>
+  <p>{{ data.product?.description }}</p>
+  <button (click)="showAll()">Pokaż wszystkie dane</button>
+  <pre *ngIf="showJsonData">
+    {{ data.product | json }}
+  </pre>
+</div>
