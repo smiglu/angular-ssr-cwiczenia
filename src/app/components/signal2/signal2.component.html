@@ -15,19 +15,22 @@
     </tr>
 
     @for (product of products(); track $index) {
-    <tr>
-      <td>
-        <input
-          type="checkbox"
-          [checked]="selectedProducts().includes($index)"
-          [id]="$index"
-          (click)="addProductToSelected($index)"
-        />
-      </td>
-      <td>{{ product.title }}</td>
-      <td>{{ product.category }}</td>
-      <td>{{ product.price }}</td>
-    </tr>
+      @let id = "p" + $index;
+      <tr>
+        <td>
+          <input
+            type="checkbox"
+            [checked]="selectedProducts().includes($index)"
+            [id]="id"
+            (click)="addProductToSelected($index)"
+          />
+        </td>
+        <td>
+          <label [for]="id">{{ product.title }}</label>
+        </td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.price }}</td>
+      </tr>
     }
   </table>
 </section>
