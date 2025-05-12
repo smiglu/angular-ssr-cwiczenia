@@ -5,9 +5,10 @@ import { APIProduct, APIProductList } from '../../models/api-products.model'
 import { DummyJsonApiService } from '../../services/dummyjson-api.service'
 
 @Component({
-  selector: 'app-signal2',
-  templateUrl: './signal2.component.html',
-  styleUrl: './signal2.component.scss'
+    selector: 'app-signal2',
+    templateUrl: './signal2.component.html',
+    styleUrl: './signal2.component.scss',
+    standalone: false
 })
 export class Signal2Component {
 

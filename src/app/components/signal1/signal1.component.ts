@@ -6,9 +6,10 @@ import { map, Subject } from 'rxjs'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
 @Component({
-  selector: 'app-signal1',
-  templateUrl: './signal1.component.html',
-  styleUrl: './signal1.component.scss',
+    selector: 'app-signal1',
+    templateUrl: './signal1.component.html',
+    styleUrl: './signal1.component.scss',
+    standalone: false
 })
 export class Signal1Component {
   private readonly dummyApi = inject(DummyJsonApiService);

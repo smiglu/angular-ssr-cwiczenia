@@ -4,9 +4,10 @@ import { Observable } from 'rxjs'
 import { APIProduct } from '../../models/api-products.model'
 
 @Component({
-  selector: 'app-dummy-product',
-  templateUrl: './dummy-product.component.html',
-  styleUrl: './dummy-product.component.scss'
+    selector: 'app-dummy-product',
+    templateUrl: './dummy-product.component.html',
+    styleUrl: './dummy-product.component.scss',
+    standalone: false
 })
 export class DummyProductComponent {
   @Input({ required: true }) id!: number
