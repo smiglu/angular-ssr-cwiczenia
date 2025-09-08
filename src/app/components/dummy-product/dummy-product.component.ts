@@ -1,13 +1,13 @@
-import { Component, inject, Input } from '@angular/core'
+import { Component, inject, Input, SimpleChanges } from '@angular/core'
 import { DummyJsonApiService } from '../../services/dummyjson-api.service'
 import { Observable } from 'rxjs'
 import { APIProduct } from '../../models/api-products.model'
 
 @Component({
-    selector: 'app-dummy-product',
-    templateUrl: './dummy-product.component.html',
-    styleUrl: './dummy-product.component.scss',
-    standalone: false
+  selector: 'app-dummy-product',
+  templateUrl: './dummy-product.component.html',
+  styleUrl: './dummy-product.component.scss',
+  standalone: false
 })
 export class DummyProductComponent {
   @Input({ required: true }) id!: number
@@ -16,8 +16,10 @@ export class DummyProductComponent {
 
   showJsonData = false
   product!: Observable<APIProduct>
-  ngOnInit(): void {
-    this.product = this.api.getProduct(this.id)
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['id'] && this.id > 0) {
+      this.product = this.api.getProduct(this.id)
+    }
   }
   showAll() {
     this.showJsonData = true
