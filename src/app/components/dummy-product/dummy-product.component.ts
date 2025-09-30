@@ -2,12 +2,13 @@ import { Component, inject, Input, SimpleChanges } from '@angular/core'
 import { DummyJsonApiService } from '../../services/dummyjson-api.service'
 import { Observable } from 'rxjs'
 import { APIProduct } from '../../models/api-products.model'
+import { NgOptimizedImage, AsyncPipe, JsonPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-dummy-product',
-  templateUrl: './dummy-product.component.html',
-  styleUrl: './dummy-product.component.scss',
-  standalone: false
+    selector: 'app-dummy-product',
+    templateUrl: './dummy-product.component.html',
+    styleUrl: './dummy-product.component.scss',
+    imports: [NgOptimizedImage, AsyncPipe, JsonPipe]
 })
 export class DummyProductComponent {
   @Input({ required: true }) id!: number

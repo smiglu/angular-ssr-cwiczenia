@@ -1,7 +1,7 @@
 import { APIProductList } from './../../models/api-products.model'
 import { Component, DestroyRef, inject } from '@angular/core'
 import { DummyJsonApiService } from '../../services/dummyjson-api.service'
-import { AsyncPipe, JsonPipe } from '@angular/common'
+import { AsyncPipe, JsonPipe, SlicePipe } from '@angular/common'
 import { map, Subject } from 'rxjs'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 
@@ -9,7 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
     selector: 'app-signal1',
     templateUrl: './signal1.component.html',
     styleUrl: './signal1.component.scss',
-    standalone: false
+    imports: [AsyncPipe, SlicePipe]
 })
 export class Signal1Component {
   private readonly dummyApi = inject(DummyJsonApiService);

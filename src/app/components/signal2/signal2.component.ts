@@ -1,14 +1,13 @@
-import { Component, DestroyRef, inject, signal } from '@angular/core'
+import { Component, DestroyRef, inject, linkedSignal, signal } from '@angular/core'
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { Subject, map } from 'rxjs'
 import { APIProduct, APIProductList } from '../../models/api-products.model'
 import { DummyJsonApiService } from '../../services/dummyjson-api.service'
 
 @Component({
-    selector: 'app-signal2',
-    templateUrl: './signal2.component.html',
-    styleUrl: './signal2.component.scss',
-    standalone: false
+  selector: 'app-signal2',
+  templateUrl: './signal2.component.html',
+  styleUrl: './signal2.component.scss'
 })
 export class Signal2Component {
 
@@ -16,6 +15,7 @@ export class Signal2Component {
   private readonly dummyApi = inject(DummyJsonApiService);
 
   products = signal<APIProduct[]>([])
+
   selectedProducts = signal<number[]>([])
 
   private destroyRef = inject(DestroyRef)

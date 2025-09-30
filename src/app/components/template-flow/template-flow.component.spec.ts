@@ -8,8 +8,8 @@ describe('TemplateFlowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TemplateFlowComponent]
-    })
+    imports: [TemplateFlowComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(TemplateFlowComponent);
